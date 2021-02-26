@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Opgavee37
+namespace Arrays
 {
-    class Opgavee37
+    class Program
     {
         static void Main(string[] args)
         {
