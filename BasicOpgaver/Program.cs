@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Globalization;
+using System.Linq;
+using System.Reflection;
 
 namespace BasicOpgaver
 {
@@ -33,9 +36,24 @@ namespace BasicOpgaver
             //Opgave25();
             //Opgave26();
             //Opgave27();
+            //Opgave28();
+            //Opgave30();
+            //Opgave31();
+            //Opgave32();
             //Opgave33();
+            //Opgave34();
             //Opgave35();
             //Opgave36();
+            //Opgave37();
+            //Opgave38();
+            //Opgave39();
+            //Opgave44();
+            //Opgave46();
+            //Opgave49();
+            //Opgave50();
+            //Opgave53();
+            //Opgave56();
+
             
 
         }
@@ -514,6 +532,62 @@ namespace BasicOpgaver
             Console.WriteLine("Sum of the digits of the said integer: " + sum);
         }
 
+        public static void Opgave28()
+        {
+            Console.Write("Write a sentence: ");
+            string sentence = Convert.ToString(Console.ReadLine());
+
+            string[] words = sentence.Split(' ');
+            Array.Reverse(words);
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                Console.Write(words[i] + " ");
+            }
+
+        }
+
+        public static void Opgave30()
+        {
+            string hex = "4B0";
+            Console.WriteLine(Convert.ToInt32(hex, 16));
+        }
+
+        public static void Opgave31()
+        {
+            int[] first_array = { 1, 3, -5, 4 };
+            int[] second_array = { 1, 4, -5, -2 };
+
+            Console.WriteLine("\nArray1: [{0}]", string.Join(", ", first_array));
+            Console.WriteLine("Array2: [{0}]", string.Join(", ", second_array));
+
+            Console.WriteLine("\nMultiply corresponding elements of two arrays: ");
+
+            for (int i = 0; i < first_array.Length; i++)
+            {
+
+                Console.Write(first_array[i] * second_array[i] + " ");
+            }
+            Console.WriteLine("\n");
+        }
+
+        public static void Opgave32()
+        {
+            Console.Write("Write a string: ");
+            string sentence = Convert.ToString(Console.ReadLine());
+
+            if (sentence.Length < 4)
+            {
+                Console.WriteLine(sentence);
+            }
+            else
+            {
+                string newSentence = sentence.Substring(sentence.Length - 4);
+                Console.WriteLine(newSentence+newSentence+newSentence+newSentence);
+            }
+        }
+
+
         public static void Opgave33()
         {
             int tal1;
@@ -536,6 +610,20 @@ namespace BasicOpgaver
             else
             {
                 Console.WriteLine("False");
+            }
+        }
+
+        public static void Opgave34()
+        {
+            string sentence = "Hello how are you?";
+            string result = "Hello";
+            if (sentence.Substring(0, result.Length) == result)
+            {
+                Console.WriteLine(true);
+            }
+            else
+            {
+                Console.WriteLine(false);
             }
         }
 
@@ -591,6 +679,115 @@ namespace BasicOpgaver
                 Console.WriteLine("False");
             }
         }
+
+        public static void Opgave37()
+        {
+            string str = "PHP Tutorial";
+            if (str.Substring(1, 2) == "HP")
+            {
+                Console.WriteLine(str.Remove(1, 2));
+            }
+        }
+
+        public static void Opgave38()
+        {
+            string str = "PHP";
+            if (str.Substring(0, 1) == "P" || str.Substring(1, 1) == "H")
+            {
+                Console.WriteLine(str.Substring(0, 1) + str.Substring(1, 1));
+            }
+        }
+        
+        public static void Opgave39()
+        {
+            int[] arr = new int[3] { 15, 25, 30 };
+            Console.WriteLine("Largest :" + arr.Max());
+            Console.WriteLine("Lowest :" + arr.Min());
+        }
+
+        public static void Opgave44()
+        {
+            string str = "w3resource";
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    Console.Write(str.Substring(i, 1));
+                }
+            }
+        }
+        
+        public static void Opgave46()
+        {
+            Console.WriteLine("Input an integer: ");
+            int x = Convert.ToInt32(Console.ReadLine());
+            int[] nums = { 1, 2, 2, 3, 3, 4, 5, 6, 5, 7, 7, 7, 8, 8, 9 };
+            Console.WriteLine((nums[0] == x) || (nums[nums.Length - 1] == x));
+        }
+
+        public static void Opgave49()
+        {
+            int[] nums1 = { 1, 2, 2, 3, 3, 4, 5, 6, 5, 7, 7, 7, 8, 8, 1 };
+            Console.WriteLine("\nArray1: [{0}]", string.Join(", ", nums1));
+            int[] nums2 = { 1, 2, 2, 3, 3, 4, 5, 6, 5, 7, 7, 7, 8, 8, 5 };
+            Console.WriteLine("\nArray2: [{0}]", string.Join(", ", nums2));
+
+            Console.WriteLine("\nCheck if the first element or the last element of the two arrays ( length 1 or more) are equal.");
+            Console.WriteLine((nums1[0].Equals(nums2[0])) || (nums1[nums1.Length - 1].Equals(nums2[nums2.Length - 1])));
+        }
+
+        public static void Opgave50()
+        {
+            int[] nums = { 1, 2, 8 };
+            Console.WriteLine("\nArray1: [{0}]", string.Join(", ", nums));
+            var temp = nums[0];
+            for (var i = 0; i < nums.Length - 1; i++)
+            {
+                nums[i] = nums[i + 1];
+            }
+            nums[nums.Length - 1] = temp;
+            Console.WriteLine("\nAfter rotating array becomes: [{0}]", string.Join(", ", nums));
+        }
+
+        public static void Opgave53()
+        {
+            int[] nums = { 2, 4, 7, 8, 6 };
+            int amountOfOdds = 0;
+
+            foreach (int num in nums)
+            {
+                if (num % 2 != 0)
+                {
+                    amountOfOdds += 1;
+                }
+            }
+            Console.WriteLine($"There are {amountOfOdds} odd numbers in the array");
+            
+        }
+
+        public static void Opgave56()
+        {
+            Console.Write("Input a string: ");
+            string text = Convert.ToString(Console.ReadLine());
+
+            char[] chars = text.ToCharArray();
+            Array.Reverse(chars);
+            string newText = String.Join("", chars);
+
+            if (newText.Equals(text))
+            {
+                Console.WriteLine("The string is a palindrome");
+            }
+            else
+            {
+                Console.WriteLine("The string is not a palindrome");
+            }
+
+
+        }
+
+
+
 
 
 
