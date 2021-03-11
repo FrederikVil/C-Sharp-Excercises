@@ -37,6 +37,7 @@ namespace BasicOpgaver
             //Opgave26();
             //Opgave27();
             //Opgave28();
+            //Opgave29();
             //Opgave30();
             //Opgave31();
             //Opgave32();
@@ -47,12 +48,29 @@ namespace BasicOpgaver
             //Opgave37();
             //Opgave38();
             //Opgave39();
+            //Opgave40();
+            //Opgave41();
+            //Opgave42();
+            //Opgave43();
             //Opgave44();
+            //Opgave45();
             //Opgave46();
+            //Opgave47();
+            //Opgave48();
             //Opgave49();
             //Opgave50();
+            //Opgave51();
+            //Opgave52();
             //Opgave53();
+            //Opgave54();
+            //Opgave55();
             //Opgave56();
+            //Opgave57();
+            //Opgave58();
+            //Opgave59();
+            //Opgave60();
+            //Opgave61();
+            //Opgave62();
 
             
 
@@ -547,6 +565,13 @@ namespace BasicOpgaver
 
         }
 
+        public static void Opgave29()
+        {
+            long length = new System.IO.FileInfo(@"C:\eula.1028.txt").Length;
+            Console.WriteLine(length);
+
+        }
+
         public static void Opgave30()
         {
             string hex = "4B0";
@@ -705,6 +730,72 @@ namespace BasicOpgaver
             Console.WriteLine("Lowest :" + arr.Min());
         }
 
+        public static void Opgave40()
+        {
+            int targetNumber = 20;
+            bool same = false;
+            int[] arr = new int[3] { 15, 12, 13 };
+            var nearest = arr.OrderBy(x => Math.Abs((long)x - targetNumber)).First();
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                if (arr[i] == arr[i + 1])
+                {
+                    same = true;
+                }
+            }
+            if (same == true)
+            {
+                Console.WriteLine(0);
+            }
+            else
+            {
+                Console.WriteLine(nearest);
+            }
+        }
+
+        public static void Opgave41()
+        {
+            string str = "w3resource";
+            int count = str.Count(f => f == 'w');
+            if (count > 0 && count < 4)
+            {
+                Console.WriteLine(true);
+            }
+            else
+            {
+                Console.WriteLine(false);
+            }
+
+        }
+
+        public static void Opgave42()
+        {
+            string str = "w3r";
+            if (str.Length > 4)
+            {
+                Console.WriteLine(str.Substring(0, 4).ToLower() + str.Substring(4, str.Length - 4));
+            }
+            else
+            {
+                Console.WriteLine(str.ToUpper());
+
+            }
+        }
+
+        public static void Opgave43()
+        {
+            string str = "wwwwww";
+            if (str.StartsWith("w") && str.Contains("wwwww"))
+            {
+                Console.WriteLine(true);
+            }
+            else
+            {
+                Console.WriteLine(false);
+            }
+
+        }
+
         public static void Opgave44()
         {
             string str = "w3resource";
@@ -716,13 +807,38 @@ namespace BasicOpgaver
                 }
             }
         }
-        
+
+        public static void Opgave45()
+        {
+            int[] arr = new int[10] { 5, 7, 2, 4, 9, 4, 3, 7, 1, 5 };
+            Console.WriteLine(arr.Count(f => f == 5));
+        }
+
         public static void Opgave46()
         {
             Console.WriteLine("Input an integer: ");
             int x = Convert.ToInt32(Console.ReadLine());
             int[] nums = { 1, 2, 2, 3, 3, 4, 5, 6, 5, 7, 7, 7, 8, 8, 9 };
             Console.WriteLine((nums[0] == x) || (nums[nums.Length - 1] == x));
+        }
+
+        public static void Opgave47()
+        {
+            int[] arr = { 1, 3, 5, 6, 7 };
+            Console.WriteLine(arr.Sum());
+        }
+
+        public static void Opgave48()
+        {
+            int[] arr = new int[10] { 5, 7, 2, 4, 9, 4, 3, 7, 1, 5 };
+            if (arr[0] == arr[arr.Length - 1] && arr.Length > 1)
+            {
+                Console.WriteLine(true);
+            }
+            else
+            {
+                Console.WriteLine(false);
+            }
         }
 
         public static void Opgave49()
@@ -749,6 +865,27 @@ namespace BasicOpgaver
             Console.WriteLine("\nAfter rotating array becomes: [{0}]", string.Join(", ", nums));
         }
 
+        public static void Opgave51()
+        {
+            int[] arr = { 1, 2, 5, 7, 8 };
+            if (arr[0] > arr[arr.Length - 1])
+            {
+                Console.WriteLine(arr[0]);
+            }
+            else
+            {
+                Console.WriteLine(arr[arr.Length - 1]);
+            }
+        }
+
+        public static void Opgave52()
+        {
+            int[] arr1 = new int[3] { 1, 2, 5 };
+            int[] arr2 = new int[3] { 0, 3, 8 };
+            int[] arr3 = new int[3] { -1, 0, 2 };
+            int[] arr4 = new int[3] { arr1[1], arr2[1], arr3[1] };
+        }
+
         public static void Opgave53()
         {
             int[] nums = { 2, 4, 7, 8, 6 };
@@ -763,6 +900,26 @@ namespace BasicOpgaver
             }
             Console.WriteLine($"There are {amountOfOdds} odd numbers in the array");
             
+        }
+
+        public static void Opgave54()
+        {
+            int year = 1673;
+            Console.WriteLine("The year fall under the " + (Int32.Parse(year.ToString().Substring(0, 2)) + 1) + "th Century");
+        }
+
+        public static void Opgave55()
+        {
+            int[] arr = new int[5] { 2, 4, 7, 8, 6 };
+            int highestPair = 0;
+            for (int i = 0; i < arr.Length - 2; i++)
+            {
+                if ((arr[i] * arr[i + 1]) > highestPair)
+                {
+                    highestPair = (arr[i] * arr[i + 1]);
+                }
+            }
+            Console.WriteLine(highestPair);
         }
 
         public static void Opgave56()
@@ -782,10 +939,88 @@ namespace BasicOpgaver
             {
                 Console.WriteLine("The string is not a palindrome");
             }
+        }
 
+        public static void Opgave57()
+        {
+            int[] arr = new int[5] { 2, 4, 7, 8, 6 };
+            int highestPair = 0;
+            for (int i = 0; i < arr.Length - 2; i++)
+            {
+                if ((arr[i] * arr[i + 1]) > highestPair)
+                {
+                    highestPair = (arr[i] * arr[i + 1]);
+                }
+            }
+        }
+
+        public static void Opgave58()
+        {
+            int[] arr = new int[5] { 1, 3, 4, 7, 9 };
+            if (arr.Length != 10)
+            {
+                Console.WriteLine(10 - arr.Length);
+            }
+        }
+
+        public static void Opgave59()
+        {
 
         }
 
+
+        public static void Opgave60()
+        {
+            int[][] arrRect = new int[][]
+            {
+                new int[] {0, 2, 3, 2},
+                new int[] {0, 6, 0, 1},
+                new int[] {4, 0, 3, 0}
+            };
+            int sum = 0;
+            for (int i = 0; i < arrRect.Length; i++)
+            {
+                for (int j = 0; j < arrRect[i].Length; j++)
+                {
+                    if (arrRect[i][j] > 0)
+                        sum += arrRect[i][j];
+                }
+            }
+            Console.WriteLine(sum);
+        }
+
+        public static void Opgave61()
+        {
+            int[] arr = new int[11] { 1, 3, -5, 7, 9, 4, 7, 9, 8, 2, 4 };
+            int pos = 4;
+            int temp = arr[pos];
+            arr[pos] = -99999;
+            Array.Sort(arr);
+            for (int i = 0; i < pos; i++)
+            {
+                arr[i] = arr[i + 1];
+            }
+            arr[pos] = temp;
+            Console.WriteLine(string.Join(",", arr));
+        }
+
+        public static void Opgave62()
+        {
+            static string Reverse(string s)
+            {
+                char[] charArray = s.ToCharArray();
+                Array.Reverse(charArray);
+                return new string(charArray);
+            }
+
+            string str = "p(rq)st";
+            string str2 = str.Split('(', ')')[1];
+            int firstOccu = str.IndexOf("(");
+            str = str.Replace("(", "");
+            str = str.Replace(")", "");
+            str = str.Remove(firstOccu, str2.Length);
+            Console.WriteLine(str.Insert(firstOccu, Reverse(str2)));
+        }
 
 
 
